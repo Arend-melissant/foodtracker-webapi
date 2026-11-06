@@ -1,0 +1,71 @@
+# Kubernetes deployment for FoodTracker Web API
+# This manifest deploys the Docker image built from the project and mounts a hostPath
+# directory for persistent SQLite storage.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: foodtracker-webapi
+  labels:
+    app: foodtracker-webapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: foodtracker-webapi
+  template:
+    metadata:
+      labels:
+        app: foodtracker-webapi
+    spec:
+      containers:
+        - name: webapi
+          image: foodtracker-webapi:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SERVER_HOST
+              value: "0.0.0.0"
+            - name: SERVER_PORT
+              value: "8080"
+            - name: DATABASE_URL
+              value: "jdbc:sqlite:/app/data/foodtracker.db"
+          volumeMounts:
+            - name: foodtracker-data
+              mountPath: /app/data
+          # Simple readiness/liveness probes checking the OpenAPI endpoint
+          readinessProbe:
+            httpGet:
+              path: /openapi.json
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /openapi.json
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+      volumes:
+        - name: foodtracker-data
+          hostPath:
+            # Path on the Docker Desktop node (adjust as needed)
+            path: /tmp/foodtracker-data
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: foodtracker-webapi
+  labels:
+    app: foodtracker-webapi
+spec:
+  type: NodePort
+  selector:
+    app: foodtracker-webapi
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080  # accessible via localhost:30080

@@ -3,6 +3,40 @@
 A clean Java WebAPI project designed using **Hexagonal Architecture (Ports & Adapters)** to track meals, food consumption, and adverse reactions (symptoms/allergies) that may occur days later, enabling correlation analysis and trigger detection.
 
 ---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+
 
 ## 🌟 Key Features & Architecture Standards
 
@@ -33,6 +67,40 @@ A clean Java WebAPI project designed using **Hexagonal Architecture (Ports & Ada
    - **OpenAPI 3.0 Spec**: Available at `http://localhost:8080/openapi.json`.
 
 ---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+
 
 ## 🚀 Running the Application
 
@@ -70,18 +138,324 @@ Once started:
 - **REST Endpoints**: [http://localhost:8080/api/v1/](http://localhost:8080/api/v1/)
 
 ---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+
 
 ## 📡 API Reference
 
 ### 1. Authentication (`/api/v1/auth`)
 | Method | Path | Description | Protected |
-| :--- | :--- | :--- | :--- |
+| :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ |
 | `POST` | `/api/v1/auth/login` | Authenticate with Google OAuth2 ID Token or Dev Credentials | No |
 | `GET` | `/api/v1/auth/me` | Fetch authenticated user profile | Yes (Bearer) |
 
 ### 2. Food Tracking (`/api/v1/foods`)
 | Method | Path | Description | Protected |
-| :--- | :--- | :--- | :--- |
+| :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ |
 | `GET` | `/api/v1/foods` | List food entries for current user (optional `start` & `end` query params) | Yes (Bearer) |
 | `POST` | `/api/v1/foods` | Log a meal/food (accepts JSON or XML) | Yes (Bearer) |
 | `GET` | `/api/v1/foods/{id}` | Get specific food entry | Yes (Bearer) |
@@ -89,7 +463,143 @@ Once started:
 
 ### 3. Adverse Reactions (`/api/v1/reactions`)
 | Method | Path | Description | Protected |
-| :--- | :--- | :--- | :--- |
+| :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ |
 | `GET` | `/api/v1/reactions` | List reported symptoms/reactions | Yes (Bearer) |
 | `POST` | `/api/v1/reactions` | Log an adverse symptom (accepts JSON or XML) | Yes (Bearer) |
 | `GET` | `/api/v1/reactions/{id}` | Get reaction details | Yes (Bearer) |
@@ -98,10 +608,180 @@ Once started:
 
 ### 4. Correlation Analytics (`/api/v1/analytics`)
 | Method | Path | Description | Protected |
-| :--- | :--- | :--- | :--- |
+| :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ |
 | `GET` | `/api/v1/analytics/correlations` | Aggregated rankings of foods recurring before symptoms | Yes (Bearer) |
 
 ---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+
 
 ## 🧪 Testing
 
