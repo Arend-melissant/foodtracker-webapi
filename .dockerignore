@@ -1,0 +1,12 @@
+target/*
+!target/*.jar
+out/
+.idea/
+.vscode/
+*.db
+*.db-journal
+*.log
+.git/
+.gitignore
+frontend/node_modules/
+frontend/dist/

@@ -1,0 +1,40 @@
+# ==============================================================================
+# FoodTracker WebAPI - Multi-Stage Build (Source to Image)
+# ==============================================================================
+FROM maven:3.9.9-eclipse-temurin-17-alpine AS builder
+
+WORKDIR /build
+
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
+
+COPY src ./src
+RUN mvn clean package -DskipTests -B
+
+# ==============================================================================
+# Runtime Stage
+# ==============================================================================
+FROM eclipse-temurin:17-jre-alpine
+
+WORKDIR /app
+
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup && \
+    mkdir -p /app/data && \
+    chown -R appuser:appgroup /app
+
+COPY --from=builder --chown=appuser:appgroup /build/target/foodtracker-webapi-1.0.0-SNAPSHOT.jar app.jar
+
+ENV SERVER_HOST=0.0.0.0 \
+    SERVER_PORT=8080 \
+    DATABASE_URL=jdbc:sqlite:/app/data/foodtracker.db \
+    JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0"
+
+VOLUME ["/app/data"]
+EXPOSE 8080
+USER appuser
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/openapi.json || exit 1
+
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
+
