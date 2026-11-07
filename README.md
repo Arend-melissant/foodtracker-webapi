@@ -15,6 +15,33 @@ kubectl apply -f k8s/k8s-deployment.yaml
 kubectl get pods -l app=foodtracker-webapi
 ```
 
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
 The manifest:
 
 - Deploys the `foodtracker-webapi:latest` Docker image.
@@ -68,6 +95,33 @@ You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory
 
 ---
 ## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
 
 The project includes a Kubernetes manifest in the `k8s` folder.
 
@@ -150,6 +204,33 @@ kubectl apply -f k8s/k8s-deployment.yaml
 kubectl get pods -l app=foodtracker-webapi
 ```
 
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
 The manifest:
 
 - Deploys the `foodtracker-webapi:latest` Docker image.
@@ -190,29 +271,22 @@ kubectl apply -f k8s/k8s-deployment.yaml
 kubectl get pods -l app=foodtracker-webapi
 ```
 
-The manifest:
-
-- Deploys the `foodtracker-webapi:latest` Docker image.
-- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
-- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
-- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
-
-**Persistence verification**
-
-1. Create a food entry via the API or UI.
-2. Delete the pod (`kubectl delete pod <pod-name>`).
-3. Re‑apply the manifest or let the Deployment recreate the pod.
-4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
-
-For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
 
 ```bash
 mkdir -p /tmp/foodtracker-data
 ```
 
-You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
- | :---
-## 📦 Kubernetes Deployment
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
 
 The project includes a Kubernetes manifest in the `k8s` folder.
 
@@ -258,6 +332,33 @@ kubectl apply -f k8s/k8s-deployment.yaml
 kubectl get pods -l app=foodtracker-webapi
 ```
 
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
 The manifest:
 
 - Deploys the `foodtracker-webapi:latest` Docker image.
@@ -281,6 +382,94 @@ mkdir -p /tmp/foodtracker-data
 You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
  | :---
 ## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
 
 The project includes a Kubernetes manifest in the `k8s` folder.
 
@@ -332,29 +521,22 @@ kubectl apply -f k8s/k8s-deployment.yaml
 kubectl get pods -l app=foodtracker-webapi
 ```
 
-The manifest:
-
-- Deploys the `foodtracker-webapi:latest` Docker image.
-- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
-- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
-- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
-
-**Persistence verification**
-
-1. Create a food entry via the API or UI.
-2. Delete the pod (`kubectl delete pod <pod-name>`).
-3. Re‑apply the manifest or let the Deployment recreate the pod.
-4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
-
-For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
 
 ```bash
 mkdir -p /tmp/foodtracker-data
 ```
 
-You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
- | :---
-## 📦 Kubernetes Deployment
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
 
 The project includes a Kubernetes manifest in the `k8s` folder.
 
@@ -400,6 +582,33 @@ kubectl apply -f k8s/k8s-deployment.yaml
 kubectl get pods -l app=foodtracker-webapi
 ```
 
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
 The manifest:
 
 - Deploys the `foodtracker-webapi:latest` Docker image.
@@ -423,6 +632,94 @@ mkdir -p /tmp/foodtracker-data
 You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
  | :---
 ## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
 
 The project includes a Kubernetes manifest in the `k8s` folder.
 
@@ -476,29 +773,22 @@ kubectl apply -f k8s/k8s-deployment.yaml
 kubectl get pods -l app=foodtracker-webapi
 ```
 
-The manifest:
-
-- Deploys the `foodtracker-webapi:latest` Docker image.
-- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
-- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
-- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
-
-**Persistence verification**
-
-1. Create a food entry via the API or UI.
-2. Delete the pod (`kubectl delete pod <pod-name>`).
-3. Re‑apply the manifest or let the Deployment recreate the pod.
-4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
-
-For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
 
 ```bash
 mkdir -p /tmp/foodtracker-data
 ```
 
-You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
- | :---
-## 📦 Kubernetes Deployment
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
 
 The project includes a Kubernetes manifest in the `k8s` folder.
 
@@ -544,6 +834,33 @@ kubectl apply -f k8s/k8s-deployment.yaml
 kubectl get pods -l app=foodtracker-webapi
 ```
 
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
 The manifest:
 
 - Deploys the `foodtracker-webapi:latest` Docker image.
@@ -567,6 +884,94 @@ mkdir -p /tmp/foodtracker-data
 You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
  | :---
 ## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
 
 The project includes a Kubernetes manifest in the `k8s` folder.
 
@@ -621,29 +1026,22 @@ kubectl apply -f k8s/k8s-deployment.yaml
 kubectl get pods -l app=foodtracker-webapi
 ```
 
-The manifest:
-
-- Deploys the `foodtracker-webapi:latest` Docker image.
-- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
-- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
-- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
-
-**Persistence verification**
-
-1. Create a food entry via the API or UI.
-2. Delete the pod (`kubectl delete pod <pod-name>`).
-3. Re‑apply the manifest or let the Deployment recreate the pod.
-4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
-
-For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
 
 ```bash
 mkdir -p /tmp/foodtracker-data
 ```
 
-You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
- | :---
-## 📦 Kubernetes Deployment
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
 
 The project includes a Kubernetes manifest in the `k8s` folder.
 
@@ -689,6 +1087,33 @@ kubectl apply -f k8s/k8s-deployment.yaml
 kubectl get pods -l app=foodtracker-webapi
 ```
 
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
 The manifest:
 
 - Deploys the `foodtracker-webapi:latest` Docker image.
@@ -712,6 +1137,94 @@ mkdir -p /tmp/foodtracker-data
 You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
  | :---
 ## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest:
+
+- Deploys the `foodtracker-webapi:latest` Docker image.
+- Sets environment variables `SERVER_HOST`, `SERVER_PORT`, and `DATABASE_URL`.
+- Mounts a `hostPath` volume at `/app/data` (default host path `/tmp/foodtracker-data`) for persistent SQLite storage.
+- Exposes the service via a NodePort (`30080`) – reachable at `http://localhost:30080`.
+
+**Persistence verification**
+
+1. Create a food entry via the API or UI.
+2. Delete the pod (`kubectl delete pod <pod-name>`).
+3. Re‑apply the manifest or let the Deployment recreate the pod.
+4. The previously stored data remains under the host directory (`/tmp/foodtracker-data/foodtracker.db`).
+
+For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory on your node.
+ | :---
+## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
 
 The project includes a Kubernetes manifest in the `k8s` folder.
 
@@ -749,6 +1262,33 @@ You can also adjust the `path` in `k8s/k8s-deployment.yaml` to another directory
 
 ---
 ## 📦 Kubernetes Deployment
+
+The project includes a Kubernetes manifest in the `k8s` folder.
+
+```bash
+# Apply the manifest
+kubectl apply -f k8s/k8s-deployment.yaml
+
+# Check the pods
+kubectl get pods -l app=foodtracker-webapi
+```
+
+The manifest deploys the `foodtracker-webapi:latest` Docker image, sets environment variables, mounts a hostPath volume at `/app/data` (default `/tmp/foodtracker-data`) for SQLite persistence, and exposes the service via a NodePort (`30080`). For local development with Docker Desktop’s Kubernetes, ensure the host path exists:
+
+```bash
+mkdir -p /tmp/foodtracker-data
+```
+
+### Azure Container Apps (Docker Hub)
+
+You can also deploy the same container to Azure Container Apps using Docker Hub as the image source. The `k8s/deploy-azure.sh` script builds the image, pushes it to Docker Hub, and creates the Azure resources. Run:
+
+```bash
+cd k8s
+./deploy-azure.sh
+```
+
+Ensure you set `DOCKER_USERNAME` and `DOCKER_PASSWORD` in the script. The script does not require an Azure Container Registry; it pulls the image directly from Docker Hub.
 
 The project includes a Kubernetes manifest in the `k8s` folder.
 

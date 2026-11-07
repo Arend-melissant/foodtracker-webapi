@@ -16,6 +16,7 @@ import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.Level;
 
 import java.io.IOException;
 import java.net.URI;
@@ -24,6 +25,16 @@ import java.time.temporal.ChronoUnit;
 
 public class AppServer {
     private static final Logger logger = LoggerFactory.getLogger(AppServer.class);
+    // Set logger level from LOG_LEVEL env var (default INFO)
+    static {
+        try {
+            String levelStr = System.getenv().getOrDefault("LOG_LEVEL", "INFO");
+            ch.qos.logback.classic.Level level = ch.qos.logback.classic.Level.toLevel(levelStr, ch.qos.logback.classic.Level.INFO);
+            ((ch.qos.logback.classic.Logger) logger).setLevel(level);
+        } catch (Exception e) {
+            // If something goes wrong, keep default configuration
+        }
+    }
 
     public static String getBaseUri() {
         String host = System.getenv().getOrDefault("SERVER_HOST", "0.0.0.0");
@@ -58,8 +69,7 @@ public class AppServer {
                         devEmail,
                         "Alice Smith",
                         "https://lh3.googleusercontent.com/a/default-user",
-                        Instant.now()
-                ));
+                        Instant.now()));
 
                 Instant now = Instant.now();
 
@@ -71,8 +81,7 @@ public class AppServer {
                         MealType.DINNER,
                         "shrimp, rice noodles, peanuts, fish sauce, egg",
                         now.minus(48, ChronoUnit.HOURS),
-                        "Dinner at Thai restaurant"
-                ));
+                        "Dinner at Thai restaurant"));
 
                 foodRepo.save(new FoodEntry(
                         "food-002",
@@ -81,8 +90,7 @@ public class AppServer {
                         MealType.BREAKFAST,
                         "dairy milk, walnuts, honey",
                         now.minus(36, ChronoUnit.HOURS),
-                        "Quick morning breakfast"
-                ));
+                        "Quick morning breakfast"));
 
                 foodRepo.save(new FoodEntry(
                         "food-003",
@@ -91,8 +99,7 @@ public class AppServer {
                         MealType.LUNCH,
                         "shrimp, heavy cream, butter, garlic",
                         now.minus(24, ChronoUnit.HOURS),
-                        "Soup of the day"
-                ));
+                        "Soup of the day"));
 
                 foodRepo.save(new FoodEntry(
                         "food-004",
@@ -101,8 +108,7 @@ public class AppServer {
                         MealType.DINNER,
                         "chicken, lettuce, olive oil, tomato",
                         now.minus(12, ChronoUnit.HOURS),
-                        "Home cooked"
-                ));
+                        "Home cooked"));
 
                 // Log an adverse symptom (e.g. hives occurring after shrimp meals)
                 reactionRepo.save(new AdverseReaction(
@@ -112,8 +118,7 @@ public class AppServer {
                         Severity.SEVERE,
                         now.minus(6, ChronoUnit.HOURS),
                         "Red rash on neck and arms started a couple of hours ago",
-                        null
-                ));
+                        null));
 
                 logger.info("Demo data seeded: User Alice with foods and allergic symptom");
             }
@@ -125,6 +130,7 @@ public class AppServer {
     public static void main(String[] args) {
         try {
             final HttpServer server = startServer();
+
 
             String baseUri = getBaseUri();
             logger.info("==================================================================");

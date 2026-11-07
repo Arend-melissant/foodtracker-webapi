@@ -6,11 +6,11 @@
         </encoder>
     </appender>
 
-    <logger name="com.foodtracker" level="DEBUG"/>
+    <logger name="com.foodtracker" level="${LOG_LEVEL:-INFO}"/>
     <logger name="org.hibernate" level="WARN"/>
     <logger name="org.glassfish" level="INFO"/>
 
-    <root level="INFO">
+    <root level="${LOG_LEVEL:-INFO}">
         <appender-ref ref="CONSOLE"/>
     </root>
 </configuration>

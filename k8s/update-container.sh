@@ -1,0 +1,1 @@
+az containerapp update --name foodtracker-webapi --resource-group foodtracker-rg --yaml app.yaml
