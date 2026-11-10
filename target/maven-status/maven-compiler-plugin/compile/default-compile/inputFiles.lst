@@ -23,6 +23,7 @@ C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastruc
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\domain\model\FoodEntry.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\domain\model\MealType.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\inbound\rest\filter\Authenticated.java
+C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\outbound\persistence\telemetry\OpenTelemetrySqlListener.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\inbound\rest\filter\GlobalExceptionMapper.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\outbound\persistence\entity\AdverseReactionJpaEntity.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\domain\exception\ValidationException.java
@@ -54,6 +55,7 @@ C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastruc
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\config\OpenApiConfiguration.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\application\port\outbound\GooglePrincipal.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\application\service\AdverseReactionService.java
+C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\inbound\rest\filter\OpenTelemetryTracingFilter.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\outbound\persistence\adapter\SqliteAdverseReactionRepositoryAdapter.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\inbound\rest\filter\AuthenticationFilter.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\inbound\rest\filter\UserSecurityContext.java

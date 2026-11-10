@@ -49,6 +49,10 @@ public final class HibernateUtil {
                 settings.put("hibernate.show_sql", "false");
                 settings.put("hibernate.format_sql", "false");
                 settings.put("hibernate.current_session_context_class", "thread");
+                settings.put("hibernate.session_factory.statement_inspector",
+                        "com.foodtracker.infrastructure.adapter.outbound.persistence.telemetry.OpenTelemetrySqlListener");
+                settings.put("hibernate.session.events.auto",
+                        "com.foodtracker.infrastructure.adapter.outbound.persistence.telemetry.OpenTelemetrySqlListener");
 
                 StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                         .applySettings(settings)

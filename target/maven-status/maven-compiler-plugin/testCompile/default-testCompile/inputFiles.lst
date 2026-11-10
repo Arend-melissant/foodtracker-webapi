@@ -4,3 +4,5 @@ C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\infrastruc
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\infrastructure\EventBusTest.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\infrastructure\OpenTelemetryLoggingTest.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\application\CorrelationAnalysisServiceTest.java
+C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\infrastructure\OpenTelemetryTracingFilterTest.java
+C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\infrastructure\OpenTelemetrySqlListenerTest.java

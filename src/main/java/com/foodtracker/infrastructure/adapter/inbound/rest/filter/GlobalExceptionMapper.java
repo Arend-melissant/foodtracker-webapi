@@ -4,6 +4,8 @@ import com.foodtracker.domain.exception.EntityNotFoundException;
 import com.foodtracker.domain.exception.UnauthorizedException;
 import com.foodtracker.domain.exception.ValidationException;
 import com.foodtracker.infrastructure.adapter.inbound.rest.dto.ErrorResponseDto;
+import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.trace.StatusCode;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.HttpHeaders;
 import jakarta.ws.rs.core.MediaType;
@@ -47,6 +49,15 @@ public class GlobalExceptionMapper implements ExceptionMapper<Throwable> {
                 status,
                 exception.getMessage() != null ? exception.getMessage() : "An unexpected error occurred"
         );
+
+        // Record exception and error status on current OpenTelemetry trace span if active
+        Span currentSpan = Span.current();
+        if (currentSpan != null && currentSpan.getSpanContext().isValid()) {
+            currentSpan.recordException(exception);
+            if (status >= 500) {
+                currentSpan.setStatus(StatusCode.ERROR, errorDto.getDetail());
+            }
+        }
 
         MediaType mediaType = determineMediaType(headers);
 

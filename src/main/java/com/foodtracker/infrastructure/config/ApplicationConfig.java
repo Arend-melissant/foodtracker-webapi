@@ -5,6 +5,7 @@ import com.foodtracker.infrastructure.adapter.inbound.rest.*;
 import com.foodtracker.infrastructure.adapter.inbound.rest.filter.AuthenticationFilter;
 import com.foodtracker.infrastructure.adapter.inbound.rest.filter.CorsFilter;
 import com.foodtracker.infrastructure.adapter.inbound.rest.filter.GlobalExceptionMapper;
+import com.foodtracker.infrastructure.adapter.inbound.rest.filter.OpenTelemetryTracingFilter;
 import io.swagger.v3.jaxrs2.integration.resources.AcceptHeaderOpenApiResource;
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 import org.glassfish.jersey.jackson.JacksonFeature;
@@ -32,6 +33,7 @@ public class ApplicationConfig extends ResourceConfig {
         // Register Providers & Filters (JSON & XML)
         register(JacksonFeature.class);
         register(JacksonXMLProvider.class);
+        register(OpenTelemetryTracingFilter.class);
         register(AuthenticationFilter.class);
         register(CorsFilter.class);
         register(GlobalExceptionMapper.class);

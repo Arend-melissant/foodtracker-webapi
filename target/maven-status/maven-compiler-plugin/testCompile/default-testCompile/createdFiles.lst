@@ -6,4 +6,3 @@ com\foodtracker\infrastructure\OpenTelemetryLoggingTest.class
 com\foodtracker\infrastructure\SerializationTest.class
 com\foodtracker\application\CorrelationAnalysisServiceTest.class
 com\foodtracker\domain\DomainModelTest.class
-com\foodtracker\infrastructure\EventBusTest.class
