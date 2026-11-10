@@ -2,4 +2,5 @@ C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\domain\Dom
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\infrastructure\SQLitePersistenceIntegrationTest.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\infrastructure\SerializationTest.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\infrastructure\EventBusTest.java
+C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\infrastructure\OpenTelemetryLoggingTest.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\test\java\com\foodtracker\application\CorrelationAnalysisServiceTest.java

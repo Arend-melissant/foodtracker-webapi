@@ -3,6 +3,7 @@ C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastruc
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\outbound\persistence\entity\FoodEntryJpaEntity.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\inbound\rest\dto\ErrorResponseDto.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\domain\model\Severity.java
+C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\config\OpenTelemetryInitializer.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\inbound\rest\AdverseReactionController.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\domain\model\AdverseReaction.java
 C:\Apps\JavaProjects\FoodTracker-WebApi\src\main\java\com\foodtracker\infrastructure\adapter\inbound\rest\dto\CorrelationReportDto.java

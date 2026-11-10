@@ -16,6 +16,7 @@ import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.foodtracker.infrastructure.config.OpenTelemetryInitializer;
 import ch.qos.logback.classic.Level;
 
 import java.io.IOException;
@@ -28,6 +29,8 @@ public class AppServer {
     // Set logger level from LOG_LEVEL env var (default INFO)
     static {
         try {
+            // Initialise OpenTelemetry globally for Logback appender
+            OpenTelemetryInitializer.init();
             String levelStr = System.getenv().getOrDefault("LOG_LEVEL", "INFO");
             ch.qos.logback.classic.Level level = ch.qos.logback.classic.Level.toLevel(levelStr, ch.qos.logback.classic.Level.INFO);
             ((ch.qos.logback.classic.Logger) logger).setLevel(level);
@@ -129,6 +132,8 @@ public class AppServer {
 
     public static void main(String[] args) {
         try {
+            // Initialise OpenTelemetry globally for Logback appender
+            OpenTelemetryInitializer.init();
             final HttpServer server = startServer();
 
 

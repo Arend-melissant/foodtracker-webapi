@@ -37,6 +37,7 @@ com\foodtracker\infrastructure\config\ApplicationConfig.class
 com\foodtracker\domain\model\MealType.class
 com\foodtracker\infrastructure\adapter\inbound\rest\dto\CreateFoodEntryDto.class
 com\foodtracker\infrastructure\config\DependencyInjectionBinder.class
+com\foodtracker\infrastructure\config\OpenTelemetryInitializer.class
 com\foodtracker\application\port\inbound\GetFoodEntriesUseCase.class
 com\foodtracker\domain\model\Severity.class
 com\foodtracker\infrastructure\adapter\inbound\rest\ReactUiResource.class

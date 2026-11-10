@@ -1,6 +1,8 @@
 com\foodtracker\infrastructure\SQLitePersistenceIntegrationTest.class
 com\foodtracker\application\CorrelationAnalysisServiceTest$StubReactionRepo.class
 com\foodtracker\application\CorrelationAnalysisServiceTest$StubFoodRepo.class
+com\foodtracker\infrastructure\OpenTelemetryLoggingTest$InMemoryLogRecordExporter.class
+com\foodtracker\infrastructure\OpenTelemetryLoggingTest.class
 com\foodtracker\infrastructure\SerializationTest.class
 com\foodtracker\application\CorrelationAnalysisServiceTest.class
 com\foodtracker\domain\DomainModelTest.class
