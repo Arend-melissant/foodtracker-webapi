@@ -16,7 +16,7 @@ properties:
       - name: SERVER_PORT
         value: '8080'
       - name: DATABASE_URL
-        value: '"jdbc:sqlite:/app/data/foodtracker.db"'
+        value: 'jdbc:sqlite:/app/dbdata/foodtracker.db'
       image: arendmelissant/foodtracker-webapi:latest
       name: foodtracker-webapi
       resources:
@@ -39,7 +39,8 @@ properties:
     volumes:
     - name: azure-files-volume
       storageType: AzureFile
-      storageName: foodtrackersa    
+      storageName: foodtrackersa  
+      mountOptions: "dir_mode=0777,file_mode=0777,uid=1000,gid=1000,nobrl,noserverino" 
   workloadProfileName: Consumption
 resourceGroup: foodtracker-rg
 type: Microsoft.App/containerApps

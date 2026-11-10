@@ -13,5 +13,23 @@
     <root level="${LOG_LEVEL:-INFO}">
         <appender-ref ref="CONSOLE"/>
     </root>
+    <appender name="OTEL" class="io.opentelemetry.logback.appender.OpenTelemetryAppender">
+        <!-- Use same pattern as console for consistency -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <!-- Service name for resource attributes (defaults to "java-application") -->
+        <resourceAttributes>
+            <entry key="service.name" value="${env.OTEL_SERVICE_NAME:-foodtracker-webapi}"/>
+        </resourceAttributes>
+        <!-- OTLP exporter configuration, driven by env vars -->
+        <endpoint>${env.OTEL_EXPORTER_OTLP_ENDPOINT}</endpoint>
+        <protocol>${env.OTEL_EXPORTER_OTLP_PROTOCOL:-http/protobuf}</protocol>
+        <headers>${env.OTEL_EXPORTER_OTLP_HEADERS}</headers>
+    </appender>
+    <root level="${env.LOG_LEVEL:-INFO}">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="OTEL"/>
+    </root>
 </configuration>
 

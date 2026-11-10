@@ -69,10 +69,12 @@ else
   info "Container app $CONTAINERAPP_NAME already exists."
 fi
 
+#az containerapp env storage remove --name "$CONTAINERAPP_ENV" --resource-group "$RESOURCE_GROUP" --storage-name "$STORAGE_ACCOUNT_NAME"
 az containerapp env storage set \
   --name "$CONTAINERAPP_ENV" \
   --resource-group "$RESOURCE_GROUP" \
   --storage-name "$STORAGE_ACCOUNT_NAME" \
+  --storage-type AzureFile \
   --azure-file-account-name "$STORAGE_ACCOUNT_NAME" \
   --azure-file-account-key "$STORAGE_ACCOUNT_KEY" \
   --azure-file-share-name "$STORAGE_FILE_SHARE" \

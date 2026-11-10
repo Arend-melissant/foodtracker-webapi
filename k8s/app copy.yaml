@@ -1,0 +1,46 @@
+id: /subscriptions/7ceb46c8-57e9-464f-acdb-93e6354eeb6f/resourceGroups/foodtracker-rg/providers/Microsoft.App/containerapps/foodtracker-webapi
+identity:
+  type: None
+location: Belgium Central
+name: foodtracker-webapi
+properties:
+  configuration:
+  managedEnvironmentId: /subscriptions/7ceb46c8-57e9-464f-acdb-93e6354eeb6f/resourceGroups/foodtracker-rg/providers/Microsoft.App/managedEnvironments/foodtracker-env
+  provisioningState: Succeeded
+  runningStatus: Running
+  template:
+    containers:
+    - env:
+      - name: SERVER_HOST
+        value: 0.0.0.0
+      - name: SERVER_PORT
+        value: '8080'
+      - name: DATABASE_URL
+        value: '"jdbc:sqlite:/app/data/foodtracker.db"'
+      image: arendmelissant/foodtracker-webapi:latest
+      name: foodtracker-webapi
+      resources:
+        cpu: 0.5
+        ephemeralStorage: 1Gi
+        memory: 1Gi
+      volumeMounts:
+      - volumeName: azure-files-volume
+        mountPath: /dbdata
+    initContainers: null
+    revisionSuffix: ''
+    scale:
+      cooldownPeriod: 300
+      maxReplicas: 1
+      minReplicas: 1
+      pollingInterval: 30
+      rules: null
+    serviceBinds: null
+    terminationGracePeriodSeconds: null
+    volumes:
+    - name: azure-files-volume
+      storageType: AzureFile
+      storageName: foodtrackersa  
+      mountOptions: "dir_mode=0777,file_mode=0777,uid=0,gid=0,nobrl" 
+  workloadProfileName: Consumption
+resourceGroup: foodtracker-rg
+type: Microsoft.App/containerApps
